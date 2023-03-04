@@ -24,14 +24,11 @@ def compute_height(n, parents):
 
 def main():
      # implement input form keyboard and from files
-    while True:
+    
         input_method = input("Write which input method you will use (i for keybord or F from files): ")
-        if input_method in ['i','f']:
-            break
-        else:
-            print("Not correct input method")
+        
     # let user input file name to use, don't allow file names with letter a
-    if input_method.lower() == 'f':
+    if "F" in input_method:
         while True:
             file_name = input("Write file name: ")
             if 'a' in file_name:
@@ -41,10 +38,11 @@ def main():
         with open(file_name) as file:
             n = int(file.readline())
             parents = list(map(int, file.readline().split()))
+            print(compute_height(n, parents))
     # account for github input inprecision
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
-    else:
+    elif "i" in input_method:
         n = int(input("Write how much numbers to input: "))
         parents = list(map(int, input("Write values seperated with space: ").split()))
         
